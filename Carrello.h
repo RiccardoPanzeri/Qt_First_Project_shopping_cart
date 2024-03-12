@@ -16,9 +16,10 @@ public:
     void rimuoviProdotto(Prodotto prodotto);
     void checkout();
     void applicaSconto(float percentuale);
-    void setTotale();
+    void setTotale(float newTotale);
     float getTotale();
+    string mostra();
 
 };
 
-#
+

@@ -12,16 +12,21 @@ private:
     string categoria;
     int quantità;
 
+
 public:
-    Prodotto(string newid, string newNome, float newPrezzo, string newCategoria) : id(newid), nome(newNome), prezzo(newPrezzo), categoria(newCategoria) {};
+    Prodotto(string newid, string newNome, float newPrezzo, string newCategoria, int newQuantità) : id(newid), nome(newNome), prezzo(newPrezzo), categoria(newCategoria), quantità(newQuantità) {};
 
     float getPrezzo();
     void setPrezzo(float newPrezzo);
     string getId();
+    void setId(string newId);
     string getCategoria();
+    void setCategoria(string newCategoria);
     string getNome();
+    void setNome(string newNome);
     int getQuantità();
     void setQuantità(int newQuantità);
+    void decrementaQuantità();
 
 };
 

@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "Carrello.h"
+#include "Prodotto.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -18,9 +19,18 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+
+    void on_pushButton_aggiungi_clicked();
+
+
+    void on_pushButton_procedi_clicked();
 
 private:
     Ui::MainWindow *ui;
+    Prodotto prodotto1;
+    Prodotto prodotto2;
+    Prodotto prodotto3;
+    vector<Prodotto> elenco;
+    Carrello carrello1;
 };
 #endif // MAINWINDOW_H

@@ -27,6 +27,7 @@ public:
     int getQuantità();
     void setQuantità(int newQuantità);
     void decrementaQuantità();
+    void incrementaQuantità();
 
 };
 

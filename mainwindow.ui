@@ -25,6 +25,11 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+background-color: rgb(167,199,231);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QListWidget" name="listWidgetCarrello">
     <property name="geometry">
@@ -57,13 +62,18 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-color: rgb(255, 0, 0);
+</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_sconto">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>360</x>
       <y>250</y>
-      <width>77</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -73,6 +83,11 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 800 9pt &quot;Rockwell Extra Bold&quot;;
+color: rgb(7, 81, 255);
+font: 22pt &quot;Playbill&quot;;</string>
+    </property>
     <property name="text">
      <string>Codice Sconto</string>
     </property>
@@ -80,31 +95,12 @@
      <cstring>line_codice</cstring>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_aggiungi">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>310</y>
-      <width>116</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="text">
-     <string> Aggiungi al Carrello</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboBoxProdotti">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>280</y>
-      <width>261</width>
+      <width>311</width>
       <height>22</height>
      </rect>
     </property>
@@ -114,18 +110,11 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>390</y>
-      <width>311</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Offerta: 20% di sconto utilizzando il codice &lt;b&gt;&quot;SCONTO20%&lt;/b&gt;&quot;</string>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(7, 81, 255);
+font: 700 9pt &quot;UD Digi Kyokasho NK-B&quot;;
+background-color: rgb(211, 211, 211);
+</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_procedi">
@@ -142,6 +131,12 @@
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 28pt &quot;Playbill&quot; ;
+color: rgb(7, 81, 255);
+background-color: rgb(211, 211, 211);
+</string>
     </property>
     <property name="text">
      <string>Procedi all'ordine</string>
@@ -165,6 +160,99 @@
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>310</y>
+      <width>285</width>
+      <height>39</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_rimuovi">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 22pt &quot;Playbill&quot; ;
+color: rgb(7, 81, 255);
+background-color: rgb(211, 211, 211);
+</string>
+       </property>
+       <property name="text">
+        <string>Rimuovi elemento</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_aggiungi">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 22pt &quot;Playbill&quot; ;
+color: rgb(7, 81, 255);
+background-color: rgb(211, 211, 211);
+text-align: center;</string>
+       </property>
+       <property name="text">
+        <string> Aggiungi al Carrello</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>390</y>
+      <width>383</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font: 11pt &quot;MS Sans Serif&quot;;
+font-style: bold;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; font-style:italic; text-decoration: underline;&quot;&gt;Offerta: 20% di sconto utilizzando il codice:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">
+font: 22pt &quot;Playbill&quot; ;
+color: rgb(7, 81, 255);
+
+</string>
+       </property>
+       <property name="text">
+        <string>&quot;SCONTO20%&quot;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

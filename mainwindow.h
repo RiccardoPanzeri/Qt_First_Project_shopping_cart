@@ -25,6 +25,8 @@ private slots:
 
     void on_pushButton_procedi_clicked();
 
+    void on_pushButton_rimuovi_clicked();
+
 private:
     Ui::MainWindow *ui;
     Prodotto prodotto1;
@@ -32,5 +34,6 @@ private:
     Prodotto prodotto3;
     vector<Prodotto> elenco;
     Carrello carrello1;
+
 };
 #endif // MAINWINDOW_H

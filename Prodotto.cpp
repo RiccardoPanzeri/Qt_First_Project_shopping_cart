@@ -50,3 +50,7 @@ void Prodotto::setCategoria(string newCategoria){
 void Prodotto::decrementaQuantità(){
     quantità--;
 }
+
+void Prodotto::incrementaQuantità(){
+    quantità++;
+}

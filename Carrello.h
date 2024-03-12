@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <list>
 #include <string>
 #include<QMainWindow>
 #include "Prodotto.h"
@@ -21,9 +22,10 @@ public:
     float getTotale();
     Prodotto getProdotto(int indice);
     Prodotto getUltimoProdotto();
-    QString mostra();
+    QString mostra(vector<Prodotto> elenco);
     void visualizza();
     bool vuoto();
+    void svuota();
 
 };
 

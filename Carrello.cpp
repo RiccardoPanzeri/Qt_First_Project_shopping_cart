@@ -38,15 +38,25 @@ void Carrello::setTotale(float newTotale){
 }
 
 
-QString Carrello::mostra(){
+QString Carrello::mostra(vector<Prodotto> elenco){
     QString riepilogo;
-    for(Prodotto i : prodotti){
-        riepilogo += QString::fromStdString(i.getNome()) + ":    ";
-        riepilogo +=  QString::number(i.getPrezzo()) + " euro\n";
+    QString differenzaS;
+    for(Prodotto &i : elenco){
 
+        if(i.getSelezionato()){
+
+            differenzaS = QString::number(i.getIniziale() - i.getQuantità());
+            riepilogo += QString::fromStdString(i.getNome()) + ":    ";
+            riepilogo +=  QString::number(i.getPrezzo()) + " euro  ";
+            riepilogo += "X" + differenzaS + "\n\n";
+            //i.setIniziale(i.getQuantità());
+             qDebug()<<"NEW INIZIALE"<<i.getIniziale();
+
+        }
+        qDebug()<<i.getNome()<<": quantita:"<< i.getQuantità()<<" qIniziale: "<<i.getIniziale()<<"\n";
     }
 
-    riepilogo += "\nTOTALE: " + QString::number(totale) + "euro\n";
+    riepilogo += "\nTOTALE: " + QString::number(totale) + " euro\n";
 
     return riepilogo;
 }
@@ -76,4 +86,8 @@ bool Carrello::vuoto(){
     }else{
         return false;
     }
+}
+
+void Carrello::svuota(){
+    prodotti.clear();
 }

@@ -9,9 +9,12 @@ using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),
-    prodotto1 ("Id001", "Prodotto1", 530.50, "alimentare", 5 ),
-    prodotto2  ("Id002", "Prodotto2", 1200.99, "elettronica", 3 ),
-    prodotto3 ("Id003", "Prodotto3", 25.99, "abbigliamento", 20 ),
+    prodotto1 ("Id001", "Spaghetti", 5.50, "alimentare", 5, 5),
+    prodotto2  ("Id002", "Scheda Grafica", 1200.99, "elettronica", 3, 3),
+    prodotto3 ("Id003", "Maglietta", 25.99, "abbigliamento", 20, 20),
+    prodotto4 ("Id004", "Jeans", 40.99, "abbigliamento", 30, 30),
+    prodotto5 ("Id005", "Modulo RAM", 59.99, "elettronica", 60, 60),
+    prodotto6 ("Id006", "Ciambelle", 4.90, "alimentare", 100, 100),
     carrello1("ID0001")
 {
     ui->setupUi(this);
@@ -22,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent)
     elenco.push_back(prodotto1);
     elenco.push_back(prodotto2);
     elenco.push_back(prodotto3);
+    elenco.push_back(prodotto4);
+    elenco.push_back(prodotto5);
+    elenco.push_back(prodotto6);
 
     //inserisco tutti i prodotti nell'elenco
     for(Prodotto i : elenco){
@@ -50,6 +56,9 @@ void MainWindow::on_pushButton_aggiungi_clicked()
     if(elenco.at(index).getQuantità() > 0){
         elenco.at(index).decrementaQuantità();
         carrello1.aggiungiProdotto(elenco.at(index));
+        if(!elenco.at(index).getSelezionato()){
+            elenco.at(index).setSelezionato(true);
+        }
         carrello1.visualizza();
 
 
@@ -74,26 +83,36 @@ void MainWindow::on_pushButton_aggiungi_clicked()
 
 void MainWindow::on_pushButton_procedi_clicked()
 
-{   carrello1.setTotale(0);
-    QString riepilogo;
-    carrello1.checkout();
-    if(ui->line_codice->text() == "SCONTO20%"){
-        qDebug()<<"Sconto applicato\n";
-        carrello1.applicaSconto(20);
+{   if(!carrello1.vuoto()){
 
-
-    }
-    riepilogo = carrello1.mostra();
-
-    QMessageBox::StandardButton risposta = QMessageBox::question(this, "Conferma Ordine", "Riepilogo ordine:\n " + riepilogo + "\nSei sicuro di voler confermare l'ordine?", QMessageBox::Yes|QMessageBox::No);
-
-    if(risposta == QMessageBox::Yes){
-        QMessageBox::information(this, "Riepilogo Ordine", "Il tuo Ordine è andato a buon fine!");
-        ui->listWidgetCarrello->clear();
         carrello1.setTotale(0);
-        ui->line_codice->setText("");
-    }
+        QString riepilogo;
+        carrello1.checkout();
+        if(ui->line_codice->text() == "SCONTO20%"){
+            carrello1.applicaSconto(20);
 
+
+        }
+        riepilogo = carrello1.mostra(elenco);
+
+        QMessageBox::StandardButton risposta = QMessageBox::question(this, "Conferma Ordine", "Riepilogo ordine:\n " + riepilogo + "\nSei sicuro di voler confermare l'ordine?", QMessageBox::Yes|QMessageBox::No);
+
+        if(risposta == QMessageBox::Yes){
+            QMessageBox::information(this, "Riepilogo Ordine", "Il tuo Ordine è andato a buon fine!");
+            ui->listWidgetCarrello->clear();
+            carrello1.setTotale(0);
+            ui->line_codice->setText("");
+            carrello1.svuota();
+            for(Prodotto &x : elenco){
+                x.setSelezionato(false);
+                x.setIniziale(x.getQuantità());
+            }
+            riepilogo.clear();
+
+        }
+    }else{
+        QMessageBox::warning(this, "Carrello vuoto", "Non ci sono articoli all'interno del tuo carrello");
+    }
 
 }
 
@@ -105,6 +124,10 @@ void MainWindow::on_pushButton_rimuovi_clicked()
         for(Prodotto &x : elenco){
             if(x.getId() == carrello1.getUltimoProdotto().getId()){
                 x.incrementaQuantità();
+                if(x.getQuantità() == x.getIniziale()){
+                    x.setSelezionato(false);
+                    qDebug()<<"deselezionato";
+                }
                 qDebug() << "Incrementato";
                 qDebug() << to_string(x.getQuantità()) + " " + x.getId();
             }
@@ -120,7 +143,7 @@ void MainWindow::on_pushButton_rimuovi_clicked()
         ui->comboBoxProdotti->setCurrentIndex(index);
 
     }else{
-        QMessageBox::warning(this, "Carrello Vuoto", "Non sono presentiprodotti nel tuo carrello");
+        QMessageBox::warning(this, "Carrello Vuoto", "Non sono presenti prodotti nel tuo carrello");
     }
 
 }

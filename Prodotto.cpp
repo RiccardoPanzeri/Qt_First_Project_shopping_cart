@@ -54,3 +54,19 @@ void Prodotto::decrementaQuantità(){
 void Prodotto::incrementaQuantità(){
     quantità++;
 }
+
+int Prodotto::getIniziale(){
+    return quantitàIniziale;
+}
+
+void Prodotto::setIniziale(int newQuantità){
+    quantitàIniziale = newQuantità;
+}
+
+bool Prodotto::getSelezionato(){
+    return selezionato;
+}
+
+void Prodotto::setSelezionato(bool tf){
+    selezionato = tf;
+}

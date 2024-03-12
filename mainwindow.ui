@@ -111,7 +111,7 @@ font: 22pt &quot;Playbill&quot;;</string>
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(7, 81, 255);
+     <string notr="true">
 font: 700 9pt &quot;UD Digi Kyokasho NK-B&quot;;
 background-color: rgb(211, 211, 211);
 </string>
@@ -161,7 +161,7 @@ background-color: rgb(211, 211, 211);
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -181,7 +181,7 @@ background-color: rgb(211, 211, 211);
        </property>
        <property name="styleSheet">
         <string notr="true">font: 22pt &quot;Playbill&quot; ;
-color: rgb(7, 81, 255);
+
 background-color: rgb(211, 211, 211);
 </string>
        </property>
@@ -206,7 +206,7 @@ background-color: rgb(211, 211, 211);
        </property>
        <property name="styleSheet">
         <string notr="true">font: 22pt &quot;Playbill&quot; ;
-color: rgb(7, 81, 255);
+
 background-color: rgb(211, 211, 211);
 text-align: center;</string>
        </property>
@@ -217,7 +217,7 @@ text-align: center;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -266,6 +266,14 @@ color: rgb(7, 81, 255);
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>listWidgetCarrello</tabstop>
+  <tabstop>comboBoxProdotti</tabstop>
+  <tabstop>pushButton_rimuovi</tabstop>
+  <tabstop>pushButton_aggiungi</tabstop>
+  <tabstop>line_codice</tabstop>
+  <tabstop>pushButton_procedi</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

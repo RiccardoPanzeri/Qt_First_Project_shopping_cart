@@ -32,6 +32,9 @@ private:
     Prodotto prodotto1;
     Prodotto prodotto2;
     Prodotto prodotto3;
+    Prodotto prodotto4;
+    Prodotto prodotto5;
+    Prodotto prodotto6;
     vector<Prodotto> elenco;
     Carrello carrello1;
 
